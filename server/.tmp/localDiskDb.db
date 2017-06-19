@@ -1,0 +1,122 @@
+{
+  "data": {
+    "users": [
+      {
+        "email": "user1@facebook.com",
+        "firstName": "User 1",
+        "password": "$2a$10$SkI3zAT5G1ntxXjAJuHiZeo9tSqWPDpZaESaMhcgsf9LCmcwibwN2",
+        "createdAt": "2016-11-06T09:42:15.376Z",
+        "updatedAt": "2016-11-06T09:42:15.376Z",
+        "id": 1
+      },
+      {
+        "email": "user2@facebook.com",
+        "firstName": "User 2",
+        "password": "$2a$10$SkI3zAT5G1ntxXjAJuHiZeo9tSqWPDpZaESaMhcgsf9LCmcwibwN2",
+        "createdAt": "2016-11-06T09:42:15.376Z",
+        "updatedAt": "2016-11-06T09:42:15.376Z",
+        "id": 2
+      }
+    ],
+    "tokens": [
+      {
+        "user": 1,
+        "type": "refresh",
+        "value": "uzQR9uqXlUwYzzIQSKwn1tzSwYpelMdc",
+        "expiresAt": "2017-09-13T18:48:46.788Z",
+        "createdAt": "2017-06-15T18:48:46.793Z",
+        "id": 19
+      },
+      {
+        "user": 1,
+        "type": "access",
+        "value": "O5l7K97a5ySgm0O2nW4SwBPZQekDlPa7",
+        "expiresAt": "2017-06-19T16:40:28.400Z",
+        "createdAt": "2017-06-19T15:40:28.406Z",
+        "id": 248
+      }
+    ],
+    "clients": [
+      {
+        "id": "8puWuJWZYls1Ylawxm6CMiYREhsGGSyw",
+        "name": "React-Native client",
+        "createdAt": "2016-11-06T14:18:06.096Z"
+      }
+    ]
+  },
+  "schema": {
+    "users": {
+      "email": {
+        "unique": true,
+        "type": "string"
+      },
+      "password": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "tokens": {
+      "user": {
+        "type": "integer",
+        "model": "users",
+        "foreignKey": true,
+        "alias": "user"
+      },
+      "value": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "access",
+          "refresh"
+        ]
+      },
+      "expiresAt": {
+        "type": "date"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      }
+    },
+    "clients": {
+      "id": {
+        "type": "string",
+        "primaryKey": true,
+        "unique": true
+      },
+      "name": {
+        "type": "string"
+      },
+      "createdAt": {
+        "type": "datetime"
+      }
+    }
+  },
+  "counters": {
+    "users": {
+      "id": 2
+    },
+    "tokens": {
+      "id": 248
+    },
+    "clients": {}
+  }
+}
