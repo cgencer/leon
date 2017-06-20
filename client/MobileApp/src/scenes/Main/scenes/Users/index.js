@@ -21,7 +21,6 @@ import {
 	H3
 } from 'native-base';
 import Chart from 'react-native-chart';
-import TimerMixin from 'react-timer-mixin';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -32,6 +31,12 @@ import * as usersSelectors from 'MobileApp/src/data/users/selectors';
 function jsonToMap(jsonStr) {
     return new Map(JSON.parse(jsonStr));
 }
+Date.prototype.getFullMinutes = function () {
+   if (this.getMinutes() < 10) {
+       return '0' + this.getMinutes();
+   }
+   return this.getMinutes();
+};
 
 const styles = StyleSheet.create({
 	container: {
@@ -73,7 +78,7 @@ const adaFruit = {
 	},
 	name: 'weaVaer',
 	token: '2c6428ac510246478134b64db43355df',
-	limit: 100,
+	limit: 25,
 	setOfValuesURL: '',
 	lastValueURL: ''
 } 
@@ -98,51 +103,7 @@ const renderList = () => {
 	);
 };
 
-const buttons = () => {
-	return (
-			<Container>
-				<View style={styles.buttonSet}>
-						<Button vertical primary
-							style={styles.button}
-							onPress={() => adaFruit.limit = 10}
-						>
-							10
-						</Button>
-
-						<Button vertical primary 
-							style={styles.button}
-							onPress={() => adaFruit.limit = 50}
-						>
-							50
-						</Button>
-
-						<Button vertical primary
-							style={styles.button}
-							onPress={() => adaFruit.limit = 100}
-						>
-							100
-						</Button>
-
-						<Button vertical primary
-							style={styles.button}
-							onPress={() => adaFruit.limit = 500}
-						>
-							500
-						</Button>
-
-						<Button vertical primary
-							style={styles.button}
-							onPress={() => adaFruit.limit = 1000}
-						>
-							1000
-						</Button>
-			</View>
-		</Container>
-	);
-};
-
 class Users extends Component {
-  	mixins = [TimerMixin]
 
 	static propTypes = {
 		navigator: PropTypes.shape({
@@ -180,16 +141,32 @@ class Users extends Component {
   	daFetcher(f) {
 		fetch(adaFruit.lastValueURL)
 		 	.then(result=>result.json())
-			.then(result=>console.log(result))
-			.then(lastItem=>this.setState({lastItem}))
+			.then(lastItem => {
+				this.setState({lastItem})
+			})
+//			.then(result=>console.log(result))
+//			.then(lastItem=>this.setState({lastItem}))
 		    .catch(function(error) {
 			    console.log('There has been a problem with your fetch operation: ' + error.message);
     		});
 
 
+		const allowed = ['created_at', 'created_epoch', 'value'];
+		var newItems = []; 
 		fetch(adaFruit.setOfValuesURL + f)
-			.then(res => {
-				console.log(res);
+		 	.then(result => result.json())
+			.then(items => {
+				console.log(Number(items[5].value));
+				for (var i = 0; i < items.length; i++) {
+					var d = new Date(Number(items[i].created_epoch));
+					newItems.push([
+						d.getFullMinutes()+':'+d.getSeconds(), 
+						Number(items[i].value)
+					]);
+				}
+				this.setState(data => {
+			        return { data: newItems };
+				});
 			});
   	}
 
@@ -238,6 +215,11 @@ class Users extends Component {
 
 							{this.state.items.length ? '' : 
 								<Chart
+									showXAxisLabels={false} 
+									hideHorizontalGridLines={false}
+									hideVerticalGridLines={false}
+									showGrid={false} 
+									yAxisUseDecimal={true} 
 									style={styles.chart}
 									data={this.state.data}
 									verticalGridStep={5}
@@ -254,16 +236,45 @@ class Users extends Component {
 							<H3>
 							on: {d.getHours()}:{d.getMinutes()}
 							</H3>
-							<Text>({d.getDay()}.{d.getMonth()}.{d.getFullYear()})</Text>
-							<Text>({this.state.lastItem.updated_at})</Text>
-							<Text>retrieved {adaFruit.limit} items.</Text>
 						</View>
 
 					</Content>
 				</View>
 
 				<Footer>
-					{buttons()}
+			<Container>
+				<View style={styles.buttonSet}>
+						<Button vertical primary
+							style={styles.button}
+							onPress={() => this.daFetcher(10)}>
+							10
+						</Button>
+
+						<Button vertical primary 
+							style={styles.button}
+							onPress={() => this.daFetcher(25)}>
+							25
+						</Button>
+
+						<Button vertical primary
+							style={styles.button}
+							onPress={() => this.daFetcher(50)}>
+							50
+						</Button>
+
+						<Button vertical primary
+							style={styles.button}
+							onPress={() => this.daFetcher(100)}>
+							100
+						</Button>
+
+						<Button vertical primary
+							style={styles.button}
+							onPress={() => this.daFetcher(250)}>
+							250
+						</Button>
+			</View>
+		</Container>
 				</Footer>
 
 			</Container>

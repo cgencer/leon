@@ -30,10 +30,10 @@
       {
         "user": 1,
         "type": "access",
-        "value": "O5l7K97a5ySgm0O2nW4SwBPZQekDlPa7",
-        "expiresAt": "2017-06-19T16:40:28.400Z",
-        "createdAt": "2017-06-19T15:40:28.406Z",
-        "id": 248
+        "value": "rbQbQtiCAc2YHV3Olrn0a3Ts52yH796T",
+        "expiresAt": "2017-06-20T10:17:42.881Z",
+        "createdAt": "2017-06-20T09:17:42.890Z",
+        "id": 315
       }
     ],
     "clients": [
@@ -115,7 +115,7 @@
       "id": 2
     },
     "tokens": {
-      "id": 248
+      "id": 315
     },
     "clients": {}
   }
