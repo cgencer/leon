@@ -18,24 +18,7 @@
         "id": 2
       }
     ],
-    "tokens": [
-      {
-        "user": 1,
-        "type": "access",
-        "value": "zDC490cScrgxZRnTIoyIeyRgcEPjPIAH",
-        "expiresAt": "2017-06-21T09:37:08.616Z",
-        "createdAt": "2017-06-21T08:37:08.620Z",
-        "id": 329
-      },
-      {
-        "user": 1,
-        "type": "refresh",
-        "value": "6A1ZsSfk6nSRdvzoXos6sCPqnmayXTNS",
-        "expiresAt": "2017-09-19T08:37:08.622Z",
-        "createdAt": "2017-06-21T08:37:08.640Z",
-        "id": 330
-      }
-    ],
+    "tokens": [],
     "clients": [
       {
         "id": "8puWuJWZYls1Ylawxm6CMiYREhsGGSyw",
@@ -115,7 +98,7 @@
       "id": 2
     },
     "tokens": {
-      "id": 330
+      "id": 332
     },
     "clients": {}
   }

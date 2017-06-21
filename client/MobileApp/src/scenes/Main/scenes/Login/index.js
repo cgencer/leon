@@ -89,6 +89,11 @@ class Login extends Component {
 		});
 		dismissKeyboard();
 
+// directly jump to user page on pressing login button
+		this.setState(this.initialState);
+		const routeStack = this.props.navigator.getCurrentRoutes();
+		this.props.navigator.jumpTo(routeStack[3]);
+/* cut-out due login bypass
 		session.authenticate(this.state.email, this.state.password)
 		.then(() => {
 			this.setState(this.initialState);
@@ -107,11 +112,12 @@ class Login extends Component {
 				throw exception;
 			}
 		});
+*/
 	}
 
 	onPressBack() {
 		const routeStack = this.props.navigator.getCurrentRoutes();
-		this.props.navigator.jumpTo(routeStack[0]);
+		this.props.navigator.jumpTo(routeStack[1]);
 	}
 
 	renderError() {
@@ -131,12 +137,6 @@ class Login extends Component {
 			<Container>
 				<View style={styles.container}>
 					<Header>
-						<Button
-							onPress={() => this.onPressBack()}
-							transparent
-						>
-							<Icon name="ios-arrow-back" />
-						</Button>
 						<Title>Login</Title>
 					</Header>
 					<TouchableWithoutFeedback
