@@ -60,11 +60,14 @@ class App extends Component {
 	}
 
 	autoLogin() {
+/* bypassing login procedures directly
 		session.refreshToken().then(() => {
 			this.setState({ initialRoute: routeStack[3] });
 		}).catch(() => {
 			this.setState({ initialRoute: routeStack[0] });
 		});
+*/
+		this.setState({ initialRoute: routeStack[1] });
 	}
 
 	renderContent() {

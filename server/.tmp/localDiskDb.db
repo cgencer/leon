@@ -21,19 +21,19 @@
     "tokens": [
       {
         "user": 1,
-        "type": "refresh",
-        "value": "uzQR9uqXlUwYzzIQSKwn1tzSwYpelMdc",
-        "expiresAt": "2017-09-13T18:48:46.788Z",
-        "createdAt": "2017-06-15T18:48:46.793Z",
-        "id": 19
+        "type": "access",
+        "value": "zDC490cScrgxZRnTIoyIeyRgcEPjPIAH",
+        "expiresAt": "2017-06-21T09:37:08.616Z",
+        "createdAt": "2017-06-21T08:37:08.620Z",
+        "id": 329
       },
       {
         "user": 1,
-        "type": "access",
-        "value": "rbQbQtiCAc2YHV3Olrn0a3Ts52yH796T",
-        "expiresAt": "2017-06-20T10:17:42.881Z",
-        "createdAt": "2017-06-20T09:17:42.890Z",
-        "id": 315
+        "type": "refresh",
+        "value": "6A1ZsSfk6nSRdvzoXos6sCPqnmayXTNS",
+        "expiresAt": "2017-09-19T08:37:08.622Z",
+        "createdAt": "2017-06-21T08:37:08.640Z",
+        "id": 330
       }
     ],
     "clients": [
@@ -115,7 +115,7 @@
       "id": 2
     },
     "tokens": {
-      "id": 315
+      "id": 330
     },
     "clients": {}
   }

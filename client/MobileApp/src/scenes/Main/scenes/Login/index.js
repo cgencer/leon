@@ -41,6 +41,11 @@ const styles = StyleSheet.create({
 	inputIcon: {
 		width: 30,
 	},
+	invinput: {
+		marginBottom: 20,
+		top: -100,
+		left: -1000
+	},
 	input: {
 		marginBottom: 20,
 	},
@@ -71,6 +76,8 @@ class Login extends Component {
 			error: null,
 			email: 'user1@facebook.com',
 			password: '12345678',
+			iouser: 'weaVaer',
+			iotoken: '2c6428ac510246478134b64db43355df',
 		};
 		this.state = this.initialState;
 	}
@@ -141,7 +148,7 @@ class Login extends Component {
 							{this.state.error ? (
 								<FormMessage message={this.state.error} />
 							) : null}
-							<InputGroup style={styles.input}>
+							<InputGroup style={styles.invinput}>
 								<Icon style={styles.inputIcon} name="ios-person" />
 								<Input
 									placeholder="Email"
@@ -152,13 +159,33 @@ class Login extends Component {
 									value={this.state.email}
 								/>
 							</InputGroup>
-							<InputGroup style={styles.input}>
+							<InputGroup style={styles.invinput}>
 								<Icon style={styles.inputIcon} name="ios-unlock" />
 								<Input
 									placeholder="Password"
 									onChangeText={password => this.setState({ password })}
 									value={this.state.password}
 									secureTextEntry
+								/>
+							</InputGroup>
+							<InputGroup style={styles.input}>
+								<Icon style={styles.inputIcon} name="ios-person" />
+								<Input
+									placeholder="Username"
+									autoCorrect={false}
+									autoCapitalize="none"
+									onChangeText={iouser => this.setState({ iouser })}
+									value={this.state.iouser}
+								/>
+							</InputGroup>
+							<InputGroup style={styles.input}>
+								<Icon style={styles.inputIcon} name="ios-unlock" />
+								<Input
+									placeholder="Token"
+									autoCorrect={false}
+									autoCapitalize="none"
+									onChangeText={iotoken => this.setState({ iotoken })}
+									value={this.state.iotoken}
 								/>
 							</InputGroup>
 							{this.state.isLoading ? (

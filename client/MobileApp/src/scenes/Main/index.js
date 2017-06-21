@@ -37,13 +37,6 @@ const Main = (props) => {
 					>
 						Login
 					</Button>
-					<Button
-						style={styles.button}
-						onPress={() => props.navigator.jumpTo(routeStack[2])
-					}
-					>
-						Register
-					</Button>
 				</View>
 			</View>
 		</Container>

@@ -152,7 +152,7 @@ class Users extends Component {
 
 
 		const allowed = ['created_at', 'created_epoch', 'value'];
-		var newItems = []; 
+		var newItems = [];
 		fetch(adaFruit.setOfValuesURL + f)
 		 	.then(result => result.json())
 			.then(items => {
@@ -185,7 +185,7 @@ class Users extends Component {
 	onPressLogout() {
 		session.revoke().then(() => {
 			const routeStack = this.props.navigator.getCurrentRoutes();
-			this.props.navigator.jumpTo(routeStack[0]);
+			this.props.navigator.jumpTo(routeStack[1]);			// bypass (was 0)
 			this.props.actions.users.empty();
 		});
 	}
@@ -236,6 +236,9 @@ class Users extends Component {
 							<H3>
 							on: {d.getHours()}:{d.getMinutes()}
 							</H3>
+							<Text>({d.getDay()}.{d.getMonth()}.{d.getFullYear()})</Text>
+							<Text>({this.state.lastItem.updated_at})</Text>
+							<Text>retrieved {adaFruit.limit} items.</Text>
 						</View>
 
 					</Content>
