@@ -43,8 +43,8 @@ react-native run-android
 
 ## Modifying code
 
-All application code are located under /client/MobileApp/src
-Most of the tool is at /client/MobileApp/src/scenes/Main/scenes/Users which hold the main chart plotting page.
+All application code are located under `/client/MobileApp/src`
+Most of the tool is at `/client/MobileApp/src/scenes/Main/scenes/Users` which hold the main chart plotting page.
 
 ## Server
 
