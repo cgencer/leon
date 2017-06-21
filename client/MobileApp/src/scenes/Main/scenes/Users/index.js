@@ -219,6 +219,7 @@ class Users extends Component {
 									hideHorizontalGridLines={false}
 									hideVerticalGridLines={false}
 									showGrid={false} 
+									dataPointRadius={1} 
 									yAxisUseDecimal={true} 
 									style={styles.chart}
 									data={this.state.data}

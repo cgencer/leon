@@ -7,14 +7,20 @@ const endPoints = {
 	revoke: '/users/auth/revoke',
 	refresh: '/users/auth/refresh',
 };
-
+/*
 export const authenticate = (email, password) => fetchApi(endPoints.authenticate, {}, 'post', {
 	Authorization: `Basic ${new Buffer(`${email}:${password}`).toString('base64')}`,
 });
+*/
+export const authenticate = (email, password) => {};
 
+/*
 export const refresh = (token, user) => fetchApi(endPoints.refresh, { token, user }, 'post', {
 	'Client-ID': apiConfig.clientId,
 	Authorization: null,
 });
+*/
+export const refresh = (token, user) => {};
 
-export const revoke = tokens => fetchApi(endPoints.revoke, { tokens }, 'post');
+//export const revoke = tokens => fetchApi(endPoints.revoke, { tokens }, 'post');
+export const revoke = tokens => {};
