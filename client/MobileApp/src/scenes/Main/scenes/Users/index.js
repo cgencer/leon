@@ -141,9 +141,7 @@ class Users extends Component {
   	daFetcher(f) {
 		fetch(adaFruit.lastValueURL)
 		 	.then(result=>result.json())
-			.then(lastItem => {
-				this.setState({lastItem})
-			})
+			.then(lastItem => {this.setState({lastItem})})
 //			.then(result=>console.log(result))
 //			.then(lastItem=>this.setState({lastItem}))
 		    .catch(function(error) {
@@ -156,7 +154,6 @@ class Users extends Component {
 		fetch(adaFruit.setOfValuesURL + f)
 		 	.then(result => result.json())
 			.then(items => {
-				console.log(Number(items[5].value));
 				for (var i = 0; i < items.length; i++) {
 					var d = new Date(Number(items[i].created_epoch));
 					newItems.push([
