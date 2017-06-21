@@ -41,6 +41,11 @@ export default {
 react-native run-android
 ```
 
+## Modifying code
+
+All application code are located under /client/MobileApp/src
+Most of the tool is at /client/MobileApp/src/scenes/Main/scenes/Users which hold the main chart plotting page.
+
 ## Server
 
 The server is located on heroku. I mostly bypassed all login functions (remarked them), which can be activated on a real-login step when needed. 
